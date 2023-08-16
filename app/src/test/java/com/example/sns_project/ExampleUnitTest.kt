@@ -1,4 +1,4 @@
-package com.example.TakeMeWithYou
+package com.example.sns_project
 
 import org.junit.Test
 
