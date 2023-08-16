@@ -6,6 +6,7 @@
     android:id="@+id/toolbar"
     app:title="@string/toolbar_title"
     android:background="@color/toolbar_mint"
+    app:menu="@menu/menu_top_toolbar"
     >
 
 </androidx.appcompat.widget.Toolbar>

@@ -4,57 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainPageActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:text="@string/appbar_title"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/divider"
+    <!--  todo 돋보기 아이콘 클릭 시 검색 입력창 추가  -->
+    <!--  todo 검색 입력창에서 팀원 이름 자동완성 -->
+    <!-- 툴바 todo 에뮬레이터 상단에 보라색 여분 없애는 방법 -->
+
+    <include
+        layout="@layout/top_toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-    <!-- 검색어 입력 창 todo 검색 버튼을 눌러야만 보이게-->
-
-    <!-- 설정 버튼-->
-
-    <EditText
-        android:id="@+id/mainPage_InputSearchText"
-        android:layout_width="408dp"
-        android:layout_height="78dp"
-        android:hint="@string/search_view_hint_text"
-        android:inputType="text"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="25dp"
-        android:background="@color/design_default_color_background"
-        android:contentDescription="@string/appbar_setting_icon_btn_description"
-        app:layout_constraintBottom_toBottomOf="@+id/divider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_settings36" />
-
-    <!-- 검색 버튼-->
-    <ImageButton
-        android:id="@+id/imageButton9"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="85dp"
-        android:background="@color/design_default_color_background"
-        android:contentDescription="@string/appbar_search_icon_btn_description"
-        app:layout_constraintBottom_toBottomOf="@+id/divider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_search36" />
 
     <!-- 화면 상단 구분선 -->
     <View
@@ -94,7 +53,7 @@
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:menu="@menu/menu_bottom_navigation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
