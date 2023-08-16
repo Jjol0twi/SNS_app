@@ -2,6 +2,7 @@ package com.example.TakeMeWithYou
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.widget.Toolbar
 
 class SettingActivity : AppCompatActivity() {
@@ -15,5 +16,9 @@ class SettingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.setting_toolbar_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
