@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sns_project.R
+import com.example.TakeMeWithYou.R
 
 class SignUpFragment : Fragment() {
     override fun onCreateView(

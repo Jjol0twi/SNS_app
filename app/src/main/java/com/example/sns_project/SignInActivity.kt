@@ -1,4 +1,4 @@
-package com.example.sns_project
+package com.example.TakeMeWithYou
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
