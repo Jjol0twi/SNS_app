@@ -3,7 +3,6 @@ package com.example.sns_project
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.sns_project.databinding.ActivityMainBinding
 import fragment.SignInFragment
 import fragment.SignUpFragment
 
