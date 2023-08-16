@@ -13,8 +13,5 @@
         android:textSize="25dp"
         android:textColor="@color/black"
         android:textAlignment="center"/>
-
-
-
-
+    
 </androidx.appcompat.widget.Toolbar>
