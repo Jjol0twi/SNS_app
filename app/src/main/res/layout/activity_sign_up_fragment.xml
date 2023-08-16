@@ -24,7 +24,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/sample" />
+            android:src="@drawable/sample" />
 
         <View
             android:id="@+id/view2"
@@ -124,7 +124,7 @@
         android:layout_marginHorizontal="50dp"
         android:background="@drawable/edittext_box"
         android:backgroundTint="@color/purple"
-        android:text="SignUp"
+        android:text="회원가입"
         android:textColor="@color/white"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"

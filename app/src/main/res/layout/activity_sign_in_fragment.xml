@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/sample" />
+            android:src="@drawable/sample" />
 
         <View
             android:id="@+id/view1"
@@ -101,7 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="50dp"
-        android:text="Login"
+        android:text="로그인"
         android:textSize="25dp"
         android:textColor="@color/white"
         android:backgroundTint="@color/purple"
