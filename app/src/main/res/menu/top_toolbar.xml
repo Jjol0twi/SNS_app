@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/toolbar_btn_search"
+        android:enabled="true"
+        android:title="@string/toolbar_search_icon_btn_description"
+        android:icon="@drawable/ic_search36"
+        android:iconTint="@color/black"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/toolbar_btn_setting"
+        android:enabled="true"
+        android:title="@string/toolbar_setting_icon_btn_description"
+        android:icon="@drawable/ic_settings36"
+        android:iconTint="@color/black"
+        app:showAsAction="always"/>
+
+</menu>
