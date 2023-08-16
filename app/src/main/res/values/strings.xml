@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">TakeMeWithYou</string>
     <string name="app_name">SNS_Project</string>
     <string name="title_activity_fragment">fragment</string>
     <!-- Strings used for fragments for navigation -->
