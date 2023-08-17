@@ -5,14 +5,14 @@
     android:id="@+id/signin_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/white"
+    android:background="@color/white"
     tools:context="fragment.SignInFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,11 +21,11 @@
             android:id="@+id/imageView1"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:src="@drawable/sample"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/sample" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/view1"
@@ -56,20 +56,20 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="15dp"
             android:layout_marginLeft="10dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:text="아이디"
-            android:textSize="18dp" />
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextID"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/edittext_box"
             android:ems="10"
             android:hint="아이디를 입력하세요"
             android:inputType="textEmailAddress"
-            android:layout_marginBottom="20dp"
             android:padding="15dp"
             android:textSize="18dp" />
 
@@ -81,8 +81,8 @@
             android:layout_marginLeft="10dp"
             android:text="비밀번호"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextPW"
@@ -101,11 +101,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="50dp"
-        android:text="로그인"
-        android:textSize="25dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/purple"
         android:background="@drawable/edittext_box"
+        android:backgroundTint="@color/purple"
+        android:text="로그인"
+        android:textColor="@color/white"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

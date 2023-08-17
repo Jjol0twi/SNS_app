@@ -5,32 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_gray"
+    android:padding="20dp"
     tools:context=".SignInActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_marginVertical="20dp"
-        android:layout_marginHorizontal="20dp">
-
     <LinearLayout
+        android:id="@+id/sign_in_button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
+
         <Button
             android:id="@+id/signinbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/white"
+            android:drawableStart="@drawable/person"
             android:paddingHorizontal="20dp"
             android:paddingVertical="5dp"
-            android:drawableStart="@drawable/person"
             android:text="SignIn"
-            android:textSize="18dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/signupbtn"
@@ -42,17 +38,17 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="5dp"
             android:text="SignOut"
-            android:textSize="18dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="18dp" />
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fragment_menu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@id/sign_in_button_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
