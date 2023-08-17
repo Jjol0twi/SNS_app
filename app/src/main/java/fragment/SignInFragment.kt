@@ -1,5 +1,6 @@
 package fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.example.TakeMeWithYou.MainPageActivity
 import com.example.TakeMeWithYou.R
 import com.example.TakeMeWithYou.SignInActivity
+import java.nio.BufferUnderflowException
 
 class SignInFragment : Fragment() {
     override fun onCreateView(
@@ -23,17 +25,14 @@ class SignInFragment : Fragment() {
 
         // 로그인 페이지 button 선언
         val login = view.findViewById<Button>(R.id.loginBtn)
+        val loginID = view.findViewById<EditText>(R.id.login_id_edittext).text.toString()
+        val loginPW = view.findViewById<EditText>(R.id.login_pw_edittext).text.toString()
+
 
         login.setOnClickListener {
-            // 로그인 페이지 edittext 선언
-            val loginID = view.findViewById<EditText>(R.id.login_id_edittext).text.toString()
-            val loginPW = view.findViewById<EditText>(R.id.login_pw_edittext).text.toString()
-
             // 가상 ID, PW의 edittext가 일치하면 로그인 성공 + 페이지 전환
             if(loginID == "user" && loginPW == "123") {
-                /*(activity as? SignInActivity)?.loginSuccess()*/
-                val intent = Intent(activity, SignInActivity::class.java)
-                startActivity(intent)
+                (activity as? SignInActivity)?.loginSuccess()
             }
             // 아닐 경우, Toast 메세지 출력
             else

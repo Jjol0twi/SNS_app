@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.fragment.app.commit
 import fragment.SignInFragment
 import fragment.SignUpFragment
 
@@ -32,9 +33,16 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    /*// 로그인 성공 시
+    // 로그인 성공 시
     fun loginSuccess() {
         val intent = Intent(this, MainPageActivity::class.java)
         startActivity(intent)
-    }*/
+    }
+
+    // 회원가입 성공 시 로그인 화면으로 자동 전환
+    fun switchToSignIn() {
+        supportFragmentManager.commit {
+            replace(R.id.fragment_menu, SignInFragment())
+        }
+    }
 }
