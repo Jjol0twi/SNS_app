@@ -8,7 +8,7 @@
         android:title="@string/toolbar_search_icon_btn_description"
         android:icon="@drawable/ic_search36"
         android:iconTint="@color/black"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         />
     <item
         android:id="@+id/toolbar_btn_setting"
@@ -16,6 +16,6 @@
         android:title="@string/toolbar_setting_icon_btn_description"
         android:icon="@drawable/ic_settings36"
         android:iconTint="@color/black"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 
 </menu>
