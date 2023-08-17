@@ -30,7 +30,6 @@
             android:name=".SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
             android:name=".MainPageActivity"
             android:exported="true">
             <intent-filter>

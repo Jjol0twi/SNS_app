@@ -1,39 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="detail"
-        android:enabled="true"
-        android:id="@+id/menu_home"
-        android:icon="@drawable/resume" />
-    <item
-        android:title="main"
-        android:enabled="true"
-        android:id="@+id/menu_favorites"
-        android:icon="@drawable/home" />
-    <item
-        android:title="myPage"
-        android:enabled="true"
-        android:id="@+id/menu_email"
-        android:icon="@drawable/user" />
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
         android:id="@+id/mainpage_bot_navigation_btn_todetailpage"
         android:enabled="true"
         android:icon="@drawable/ic_detail36"
-        android:title="@string/bottom_navigation_title_detailpage"
-        />
+        android:title="@string/bottom_navigation_title_detailpage" />
     <item
         android:id="@+id/mainpage_bot_navigation_btn_tomainpage"
         android:enabled="true"
         android:icon="@drawable/ic_home36"
-        android:title="@string/bottom_navigation_title_mainpage"
-        />
+        android:title="@string/bottom_navigation_title_mainpage" />
 
     <item
         android:id="@+id/mainpage_bot_navigation_btn_tomypage"
         android:enabled="true"
         android:icon="@drawable/ic_portrait36"
-        android:title="@string/bottom_navigation_title_mypage"
-        />
-
+        android:title="@string/bottom_navigation_title_mypage" />
 </menu>
