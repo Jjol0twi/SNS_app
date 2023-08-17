@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">TakeMeWithYou</string>
+
+    // MainPage
+    <string name="toolbar_title">조 이름</string>
+    <string name="toolbar_search_icon_btn_description">검색</string>
+    <string name="toolbar_setting_icon_btn_description">설정</string>
+
+    <string name="bottom_navigation_title_mainpage">메인 화면</string>
+    <string name="bottom_navigation_title_detailpage">디테일 페이지</string>
+    <string name="bottom_navigation_title_mypage">내정보</string>
+    <string name="search_view_hint_text">검색하실 아이디를 입력하세요</string>
+
+
     <string name="myPage_user_image">myPage user Image</string>
     <string name="title_activity_fragment">fragment</string>
     <!-- Strings used for fragments for navigation -->
