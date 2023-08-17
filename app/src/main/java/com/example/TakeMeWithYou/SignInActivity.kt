@@ -1,5 +1,6 @@
 package com.example.TakeMeWithYou
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -30,4 +31,10 @@ class SignInActivity : AppCompatActivity() {
             select_signup.backgroundTintList = getColorStateList(R.color.white)
         }
     }
+
+    /*// 로그인 성공 시
+    fun loginSuccess() {
+        val intent = Intent(this, MainPageActivity::class.java)
+        startActivity(intent)
+    }*/
 }
