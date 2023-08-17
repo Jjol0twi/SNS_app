@@ -24,9 +24,6 @@
             android:exported="false">
         </activity>
         <activity
-            android:name=".MyPageActivity"
-            android:exported="false" />
-        <activity
             android:name=".SignInActivity"
             android:exported="false" />
         <activity
