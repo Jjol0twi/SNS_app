@@ -17,6 +17,11 @@ class SignInFragment : Fragment() {
     ): View? {
         var view = LayoutInflater.from(activity).inflate(R.layout.sign_in_fragment, container, false)
 
+        // 로그인 페이지 button, edittext 상수 선언
+        val login = view.findViewById<Button>(R.id.loginBtn)
+        val loginID = view.findViewById<EditText>(R.id.login_id_edittext)
+        val loginPW = view.findViewById<EditText>(R.id.login_pw_edittext)
+
         return view
     }
 }
