@@ -8,7 +8,7 @@ import androidx.appcompat.widget.Toolbar
 class DetailPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_page)
+        setContentView(R.layout.detail_page_activity)
         setCustomToolbar(R.id.toolbar)
 
     }

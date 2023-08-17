@@ -1,6 +1,5 @@
 package fragment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,7 @@ class SignInFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = LayoutInflater.from(activity).inflate(R.layout.activity_sign_in_fragment, container, false)
+        var view = LayoutInflater.from(activity).inflate(R.layout.sign_in_fragment, container, false)
         return view
     }
 }
