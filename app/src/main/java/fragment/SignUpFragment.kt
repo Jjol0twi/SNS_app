@@ -1,7 +1,5 @@
 package fragment
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
@@ -24,17 +22,13 @@ class SignUpFragment : Fragment() {
     ): View? {
         var view = LayoutInflater.from(activity).inflate(R.layout.sign_up_fragment, container, false)
 
+        var bool_btn = false
+
         // signUp의 editText, button 상수 선언
         val signUp = view.findViewById<Button>(R.id.signUpBtn)
         val id_edit = view.findViewById<EditText>(R.id.signup_id_editText)
         val pw_edit = view.findViewById<EditText>(R.id.signup_pw_editText)
         val userId_edit = view.findViewById<EditText>(R.id.signup_userId_editText)
-
-        // id는 영어 및 숫자만 입력 가능
-        id_edit.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-        // pw는 영어, 숫자 및 특수문자만 입력 가능
-        pw_edit.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-        // userId는 한/영, 숫자, 특수문자 모두 입력 가능 -> inputType 설정 필요 X
 
         // id 입력 전 pw, userId editText 입력 불가
         pw_edit.isEnabled = false
@@ -44,8 +38,17 @@ class SignUpFragment : Fragment() {
         id_edit.addTextChangedListener(object: TextWatcher {
             // 텍스트 입력 후 호출
             override fun afterTextChanged(s: Editable?) {
-                if(s?.isNotEmpty() == true)
-                    userId_edit.isEnabled = true
+                // id는 영어 및 숫자만 입력 가능
+                if(!s.toString().matches(Regex("^[a-zA-Z0-9]*$"))) {
+                    id_edit.error = "영어 / 숫자만 입력이 가능"
+                    userId_edit.isEnabled = false
+                }
+                else {
+                    id_edit.error = null
+                    if(s?.isNotEmpty() == true)
+                        userId_edit.isEnabled = true
+                }
+
             }
             // 텍스트 변경 전 호출
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -58,8 +61,26 @@ class SignUpFragment : Fragment() {
         // id -> userId 입력시 pw editText 활성화
         userId_edit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
+                // userId는 한/영, 숫자, 특수문자 모두 입력 가능 -> inputType 설정 필요 X
                 if(s?.isNotEmpty() == true)
                     pw_edit.isEnabled = true
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        // pw는 영어, 숫자 및 특수문자만 입력 가능
+        pw_edit.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if(!s.toString().matches(Regex("^[a-zA-Z0-9!@#$%^&*()]*$"))) {
+                    pw_edit.error = "영어 및 특정 특수문자만 사용 가능"
+                }
+                else {
+                    userId_edit.error = null
+                    bool_btn = true
+                }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -72,9 +93,13 @@ class SignUpFragment : Fragment() {
             val pw = pw_edit.text.toString()
             val userId = userId_edit.text.toString()
 
-            Toast.makeText(activity, "success!", Toast.LENGTH_SHORT).show()
-            // 회원가입 성공 시 로그인 화면으로 자동 이동
-            (activity as SignInActivity)?.switchToSignIn()
+            // id, pw, userId가 제대로 입력이 된 경우
+            if(id.isNotEmpty() && pw.isNotEmpty() && userId.isNotEmpty() && bool_btn) {
+                // 회원가입 성공 시 로그인 화면으로 자동 이동
+                (activity as SignInActivity)?.switchToSignIn()
+            }
+            else
+                Toast.makeText(activity, "정보를 제대로 입력해주세요.", Toast.LENGTH_SHORT).show()
         }
 
         return view
