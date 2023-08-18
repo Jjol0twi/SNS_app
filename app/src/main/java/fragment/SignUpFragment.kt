@@ -26,10 +26,7 @@ class SignUpFragment : Fragment() {
         val signUp = view.findViewById<Button>(R.id.signUpBtn)
         val id_edit = view.findViewById<EditText>(R.id.signup_id_editText)
         val pw_edit = view.findViewById<EditText>(R.id.signup_pw_editText)
-
-        val id = id_edit.text.toString()
-        val pw = pw_edit.text.toString()
-        val userId = view.findViewById<EditText>(R.id.signup_userId_editText).text.toString()
+        val userId_edit = view.findViewById<EditText>(R.id.signup_userId_editText)
 
         // id는 영어 및 숫자만 입력 가능
         id_edit.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
@@ -38,6 +35,10 @@ class SignUpFragment : Fragment() {
         // userId는 한/영, 숫자, 특수문자 모두 입력 가능 -> inputType 설정 필요 X
 
         signUp.setOnClickListener {
+            val id = id_edit.text.toString()
+            val pw = pw_edit.text.toString()
+            val userId = userId_edit.text.toString()
+
             Toast.makeText(activity, "success!", Toast.LENGTH_SHORT).show()
             // 회원가입 성공 시 로그인 화면으로 자동 이동
             (activity as SignInActivity)?.switchToSignIn()
