@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="myPage_user_image">myPage user Image</string>
+    <string name="myPage_user_image" translatable="false">myPage user Image</string>
 </resources>

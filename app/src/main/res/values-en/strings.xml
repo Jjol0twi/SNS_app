@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TakeMeWithYou</string>
+    <string name="setting_language_kor_btn">한국어</string>
+    <string name="setting_language_en_btn">English</string>
+    <string name="toolbar_search_icon_btn_description">search</string>
+    <string name="toolbar_setting_icon_btn_description">setting</string>
+    <string name="bottom_navigation_title_mainpage">main page</string>
+    <string name="bottom_navigation_title_detailpage">detail page</string>
+    <string name="bottom_navigation_title_mypage">my page</string>
+    <string name="search_view_hint_text">input find ID</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+</resources>
