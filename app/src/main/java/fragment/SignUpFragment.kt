@@ -26,7 +26,10 @@ class SignUpFragment : Fragment() {
         val signUp = view.findViewById<Button>(R.id.signUpBtn)
         val id_edit = view.findViewById<EditText>(R.id.signup_id_editText)
         val pw_edit = view.findViewById<EditText>(R.id.signup_pw_editText)
-        val userId_edit = view.findViewById<EditText>(R.id.signup_userId_editText)
+
+        val id = id_edit.text.toString()
+        val pw = pw_edit.text.toString()
+        val userId = view.findViewById<EditText>(R.id.signup_userId_editText).text.toString()
 
         // id는 영어 및 숫자만 입력 가능
         id_edit.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
