@@ -32,16 +32,19 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
         onCreate(db)
     }
     //  사용자 정보 조회
-/*
-    val allUsers : List<User>
+    /*val allUsers : List<User>
         get() {
             val users = ArrayList<User>()
-            val selectQueryHandler = "$TABLE_NAME"
+            val selectQueryHandler = "$TABLE_NAME"!!
             val db = this.writableDatabase
             val cursor = db.rawQuery(selectQueryHandler, null)
+            if(cursor.moveToFirst()) {
+                do {
+                    val user = User()
+                }
+            }
         }
 */
-
 
     // 사용자 정보 추가
 
