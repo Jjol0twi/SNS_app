@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="10dp">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="DetailPage"
-        android:textStyle="italic|bold"
-        android:textSize="25dp"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textAlignment="center"/>
-    
+        android:textSize="25dp"
+        android:textStyle="italic|bold" />
+
 </androidx.appcompat.widget.Toolbar>
