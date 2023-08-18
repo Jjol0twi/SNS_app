@@ -3,6 +3,7 @@ package fragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,9 +24,15 @@ class SignUpFragment : Fragment() {
 
         // signUp의 editText, button 상수 선언
         val signUp = view.findViewById<Button>(R.id.signUpBtn)
-        val id = view.findViewById<EditText>(R.id.signup_id_editText).text.toString()
-        val pw = view.findViewById<EditText>(R.id.signup_pw_editText).text.toString()
-        val userId = view.findViewById<EditText>(R.id.signup_userId_editText).text.toString()
+        val id_edit = view.findViewById<EditText>(R.id.signup_id_editText)
+        val pw_edit = view.findViewById<EditText>(R.id.signup_pw_editText)
+        val userId_edit = view.findViewById<EditText>(R.id.signup_userId_editText)
+
+        // id는 영어 및 숫자만 입력 가능
+        id_edit.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        // pw는 영어, 숫자 및 특수문자만 입력 가능
+        pw_edit.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        // userId는 한/영, 숫자, 특수문자 모두 입력 가능 -> inputType 설정 필요 X
 
         signUp.setOnClickListener {
             Toast.makeText(activity, "success!", Toast.LENGTH_SHORT).show()

@@ -1,10 +1,13 @@
 package com.example.TakeMeWithYou
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.widget.Toast
+import androidx.core.database.getStringOrNull
 
-class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
+class DatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object {
         val DB_VERSION = 1
         const val DB_NAME = "DBName"
@@ -31,8 +34,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
         db?.execSQL(sql)
         onCreate(db)
     }
+
     //  사용자 정보 조회
-    /*val allUsers : List<User>
+    val allUsers : List<User>
         get() {
             val users = ArrayList<User>()
             val selectQueryHandler = "$TABLE_NAME"!!
@@ -41,12 +45,64 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
             if(cursor.moveToFirst()) {
                 do {
                     val user = User()
-                }
+                    user.id = cursor.getString(cursor.getColumnIndex(KEY_ID) - 1)
+                    user.pw = cursor.getString(cursor.getColumnIndex(KEY_PW) - 1)
+                    user.name = cursor.getString(cursor.getColumnIndex(KEY_USERNAME) - 1)
+
+                    users.add(user)
+                } while(cursor.moveToNext())
             }
+            db.close()
+            return users
         }
-*/
 
     // 사용자 정보 추가
+    fun addUser(user:User) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(KEY_ID, user.id)
+        values.put(KEY_PW, user.pw)
+        values.put(KEY_USERNAME, user.name)
 
+        db.insert(TABLE_NAME, null, values)
+        db.close()
+    }
 
+    fun login(user: User) : Boolean{
+        val db = this.readableDatabase
+
+        val projection = arrayOf(UID)
+
+        val selection = "$KEY_ID = ? AND $KEY_PW = ?"
+        val selectionArgs = arrayOf(user.id, user.pw)
+
+        val cursor = db.query(
+            TABLE_NAME,
+            projection,
+            selection,
+            selectionArgs,
+            null,
+            null,
+            null
+        )
+        return cursor.count > 0
+    }
+    // 유저 정보 업데이트 메소드
+    fun updateUser(user: User): Int{
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(KEY_ID, user.id)
+        values.put(KEY_PW, user.pw)
+        values.put(KEY_USERNAME, user.name)
+
+        return db.update(TABLE_NAME, values, "$KEY_ID=?", arrayOf(user.id))
+    }
+
+    // 유저 삭제 메소드
+    fun deleteUser(user: User){
+        val db = this.writableDatabase
+
+        db.delete(TABLE_NAME, "$KEY_ID=?", arrayOf(user.id))
+        db.close()
+    }
 }
