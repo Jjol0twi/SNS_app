@@ -10,44 +10,39 @@
         android:id="@+id/imageButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:contentDescription="종료 버튼"
         android:src="@drawable/baseline_close_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="종료 버튼"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="400dp"
         android:layout_height="400dp"
         android:layout_marginBottom="160dp"
+        android:background="@drawable/roundconer"
         android:hint="글을 입력해 주세요"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/roundconer"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:contentDescription="사진 추가버튼"
         android:src="@drawable/baseline_camera_alt_24"
         app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="사진 추가버튼"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="등록"
         android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="등록 버튼"
-        />
-
+        android:text="등록"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
