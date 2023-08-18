@@ -44,5 +44,8 @@ class SignInActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             replace(R.id.fragment_menu, SignInFragment())
         }
+        // signin도 같이 눌리도록 수정
+        val signin = findViewById<Button>(R.id.signinbtn)
+        signin.performClick()
     }
 }
