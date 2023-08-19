@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="setting item img"
         app:layout_constraintRight_toRightOf="parent"
+        android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
