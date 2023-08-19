@@ -21,7 +21,7 @@ class SignUpFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = LayoutInflater.from(activity).inflate(R.layout.sign_up_fragment, container, false)
+        val view = LayoutInflater.from(activity).inflate(R.layout.sign_up_fragment, container, false)
 
         var bool_btn = false
 
@@ -109,7 +109,7 @@ class SignUpFragment : Fragment() {
 
                 // 회원가입 성공 시 로그인 화면으로 자동 이동
                 Toast.makeText(activity, "회원가입 성공 !", Toast.LENGTH_SHORT).show()
-                (activity as SignInActivity)?.switchToSignIn()
+                (activity as SignInActivity).switchToSignIn()
             }
             else
                 Toast.makeText(activity, "정보를 제대로 입력해주세요.", Toast.LENGTH_SHORT).show()
