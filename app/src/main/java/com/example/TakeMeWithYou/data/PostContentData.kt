@@ -1,4 +1,4 @@
-package com.example.TakeMeWithYou.adapter
+package com.example.TakeMeWithYou.data
 
 import com.example.TakeMeWithYou.R
 import com.example.TakeMeWithYou.model.PostContentModel
@@ -23,7 +23,7 @@ class PostContentData {
         ),
     )
 
-    private fun addItem(item: PostContentModel) {
+    fun addItem(item: PostContentModel) {
         contentDataList.add(item)
     }
 
