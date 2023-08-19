@@ -11,11 +11,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.TakeMeWithYou.R
 import com.example.TakeMeWithYou.SignInActivity
+import com.example.TakeMeWithYou.User
 
 class SignUpFragment : Fragment() {
+    private val userMap : MutableMap<String, User> = mutableMapOf()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -100,12 +104,13 @@ class SignUpFragment : Fragment() {
 
             // id, pw, userId가 제대로 입력이 된 경우
             if(id.isNotEmpty() && pw.isNotEmpty() && userId.isNotEmpty() && bool_btn) {
-                val intent = Intent(activity, SignInActivity::class.java)
-                intent.putExtra("id", id)
-                intent.putExtra("pw", pw)
-                intent.putExtra("name", userId)
+                val intent = Intent().apply {
+                    putExtra("id", id)
+                    putExtra("pw", pw)
+                    putExtra("name", userId)
+                }
 
-                requireActivity().setResult(Activity.RESULT_OK, intent)
+                parentFragmentManager.setFragmentResult("singUp", bundleOf("signUp_data" to intent))
 
                 // 회원가입 성공 시 로그인 화면으로 자동 이동
                 Toast.makeText(activity, "회원가입 성공 !", Toast.LENGTH_SHORT).show()
