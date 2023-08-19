@@ -1,8 +1,9 @@
 package fragment
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputType
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
@@ -48,7 +49,6 @@ class SignUpFragment : Fragment() {
                     if(s?.isNotEmpty() == true)
                         userId_edit.isEnabled = true
                 }
-
             }
             // 텍스트 변경 전 호출
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -61,9 +61,14 @@ class SignUpFragment : Fragment() {
         // id -> userId 입력시 pw editText 활성화
         userId_edit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                // userId는 한/영, 숫자, 특수문자 모두 입력 가능 -> inputType 설정 필요 X
-                if(s?.isNotEmpty() == true)
+                // userId는 영어, 숫자, 특수문자 입력 가능
+                if(!s.toString().matches(Regex("^[a-zA-Z0-9!@#$%^&*()]*$"))) {
+                    userId_edit.error = "영어 및 특정 특수문자만 사용 가능"
+                }
+                else {
+                    userId_edit.error = null
                     pw_edit.isEnabled = true
+                }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -78,7 +83,7 @@ class SignUpFragment : Fragment() {
                     pw_edit.error = "영어 및 특정 특수문자만 사용 가능"
                 }
                 else {
-                    userId_edit.error = null
+                    pw_edit.error = null
                     bool_btn = true
                 }
             }
@@ -95,13 +100,20 @@ class SignUpFragment : Fragment() {
 
             // id, pw, userId가 제대로 입력이 된 경우
             if(id.isNotEmpty() && pw.isNotEmpty() && userId.isNotEmpty() && bool_btn) {
+                val intent = Intent(activity, SignInActivity::class.java)
+                intent.putExtra("id", id)
+                intent.putExtra("pw", pw)
+                intent.putExtra("name", userId)
+
+                requireActivity().setResult(Activity.RESULT_OK, intent)
+
                 // 회원가입 성공 시 로그인 화면으로 자동 이동
+                Toast.makeText(activity, "회원가입 성공 !", Toast.LENGTH_SHORT).show()
                 (activity as SignInActivity)?.switchToSignIn()
             }
             else
                 Toast.makeText(activity, "정보를 제대로 입력해주세요.", Toast.LENGTH_SHORT).show()
         }
-
         return view
     }
 }
