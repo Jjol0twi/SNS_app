@@ -73,6 +73,9 @@ class SignInFragment : Fragment() {
             strID = intent?.getStringExtra("id")
             strPW = intent?.getStringExtra("pw")
             strName = intent?.getStringExtra("name")
+
+            id_edit.setText(strID)
+            pw_edit.setText(strPW)
         }
 
         login.setOnClickListener {
@@ -84,8 +87,10 @@ class SignInFragment : Fragment() {
                 (activity as? SignInActivity)?.loginSuccess()
             }
             // 아닐 경우, Toast 메세지 출력
-            else
+            else{
+                Log.i("id", "$strID")
                 Toast.makeText(activity, "아이디 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
+            }
         }
         return view
     }
