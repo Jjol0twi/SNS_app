@@ -1,5 +1,8 @@
 package com.example.TakeMeWithYou
 
+import android.app.Activity
+import android.content.Context
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -7,6 +10,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import java.util.Locale
 
 class SettingActivity : AppCompatActivity() {
 
@@ -55,7 +59,7 @@ class SettingActivity : AppCompatActivity() {
                                 settingChildView.findViewById(R.id.setting_listview_subItem_text)
                             settingSubText.text = j
                             settingSubContainer.addView(settingChildView)
-                            settingChildView.setOnClickListener{
+                            settingChildView.setOnClickListener {
                                 clickSettingItem(j)
                             }
                         }
@@ -67,8 +71,39 @@ class SettingActivity : AppCompatActivity() {
         }
     }
 
-    private fun clickSettingItem(j: String) {
+    private fun setLocate(Lang: String) {
+        val locale = Locale(Lang)
 
+        Locale.setDefault(locale)
+
+        val config = Configuration()
+
+        config.setLocale(locale)
+
+        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
+
+        val editor = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
+        editor.putString("My_Lang", Lang)
+        editor.apply()
+    }
+
+    private fun clickSettingItem(j: String) {
+        if (j == "시스템 설정") {
+            val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+            val language = sharedPreferences.getString("My_Lang", "ko")
+            if (language != null) {
+                setLocate(language)
+                recreate()
+            }
+        }
+        if (j == "한국어") {
+            setLocate("ko")
+            recreate()
+        }
+        if (j == "영어") {
+            setLocate("ko")
+            recreate()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
