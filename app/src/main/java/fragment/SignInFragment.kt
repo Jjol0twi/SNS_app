@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,18 +18,9 @@ import com.example.TakeMeWithYou.User
 
 class SignInFragment : Fragment() {
     private val userMap : MutableMap<String, User> = mutableMapOf()
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        parentFragmentManager.setFragmentResultListener("signUp", viewLifecycleOwner) {
-            _, result ->
-            val intent = result.getParcelable<Intent>("signUp_data")
-            val id = intent?.getStringExtra("id")
-            val pw = intent?.getStringExtra("pw")
-            val name = intent?.getStringExtra("name")
-        }
-
-    }
+    var strID : String ?= null
+    var strPW : String ?= null
+    var strName : String ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,12 +68,19 @@ class SignInFragment : Fragment() {
             }
         })
 
+        parentFragmentManager.setFragmentResultListener("signUp", viewLifecycleOwner) { _, result ->
+            val intent = result.getParcelable<Intent>("signUp_data")
+            strID = intent?.getStringExtra("id")
+            strPW = intent?.getStringExtra("pw")
+            strName = intent?.getStringExtra("name")
+        }
+
         login.setOnClickListener {
             val loginID = id_edit.text.toString()
             val loginPW = pw_edit.text.toString()
 
             // 가상 ID, PW의 edittext가 일치하면 로그인 성공 + 페이지 전환
-            if(loginID ==  && loginPW ==  && id_check && pw_check) {
+            if(loginID == strID && loginPW == strPW && id_check && pw_check) {
                 (activity as? SignInActivity)?.loginSuccess()
             }
             // 아닐 경우, Toast 메세지 출력
