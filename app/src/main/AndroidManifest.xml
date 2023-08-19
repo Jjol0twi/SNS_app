@@ -16,7 +16,7 @@
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity2"
+            android:name=".SignInActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,10 +29,6 @@
         <activity
             android:name=".SettingActivity"
             android:exported="true" />
-        <activity
-            android:name=".SignInActivity"
-            android:exported="true">
-        </activity>
         <activity
             android:name=".MyPageActivity"
             android:exported="true" />

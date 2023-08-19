@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity2">
+    tools:context=".SignInActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,9 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="30dp"
             android:text="로그인"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textColor="@color/white"
             android:background="@drawable/edittext_box"
             android:backgroundTint = "@color/purple"
@@ -39,9 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="50dp"
             android:text="회원가입"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textColor="@color/white"
             android:background="@drawable/edittext_box"
             android:backgroundTint="@color/purple"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="60dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/btn_login"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,18 +64,23 @@
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
+                android:layout_marginBottom="20dp"
                 android:text="아이디"
+                android:layout_marginLeft="10dp"
                 android:textSize="20dp"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/idEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:background="@drawable/edittext_box"
                 android:ems="10"
                 android:hint="아이디를 입력하세요."
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:padding="15dp"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -83,16 +88,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="20dp"
                 android:text="비밀번호"
+                android:layout_marginLeft="10dp"
                 android:textSize="20dp"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/pwEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:ems="10"
+                android:background="@drawable/edittext_box"
                 android:hint="비밀번호를 입력하세요."
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:textSize="18dp"/>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

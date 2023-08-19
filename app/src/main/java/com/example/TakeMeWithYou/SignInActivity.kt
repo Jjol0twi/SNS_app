@@ -13,7 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 
 lateinit var loginLauncher: ActivityResultLauncher<Intent>
 
-class SignInActivity2 : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
     var signId : String? = null
     var signPW : String? = null
 

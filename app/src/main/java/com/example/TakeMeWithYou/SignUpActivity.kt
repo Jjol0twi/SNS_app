@@ -11,6 +11,8 @@ import android.widget.Toast
 
 
 class SignUpActivity : AppCompatActivity() {
+    var userList = UserList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up_activity)
@@ -18,7 +20,7 @@ class SignUpActivity : AppCompatActivity() {
         val name = findViewById<EditText>(R.id.nameText)
         val id = findViewById<EditText>(R.id.idText)
         val pw = findViewById<EditText>(R.id.pwText)
-        val signupbtn = findViewById<Button>(R.id.button)
+        val signUpBtn = findViewById<Button>(R.id.button)
 
         var bool_btn = false
 
@@ -80,17 +82,19 @@ class SignUpActivity : AppCompatActivity() {
             }
         })
 
-        signupbtn.setOnClickListener {
-            var strid = id.text.toString()
-            var strpw = pw.text.toString()
-            var strname = name.text.toString()
+        signUpBtn.setOnClickListener {
+            val strID = id.text.toString()
+            val strPW = pw.text.toString()
+            val strName = name.text.toString()
 
             if( name.text.isNotEmpty() && id.text.isNotEmpty() && pw.text.isNotEmpty() && bool_btn) {
-                val intent = Intent(this, SignInActivity2::class.java)
-                intent.putExtra("id", strid)
-                intent.putExtra("pw", strpw)
-                intent.putExtra("name", strname)
+                val user = User(strID, strPW, strName)
+                userList.userList.add(user)
 
+                val intent = Intent(this, SignInActivity::class.java)
+                intent.putExtra("id", strID)
+                intent.putExtra("pw", strPW)
+                intent.putExtra("name", strName)
 
                 setResult(RESULT_OK, intent)
 
