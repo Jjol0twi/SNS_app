@@ -1,5 +1,6 @@
 package fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -19,7 +20,14 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        userMap[""]
+        parentFragmentManager.setFragmentResultListener("signUp", viewLifecycleOwner) {
+            _, result ->
+            val intent = result.getParcelable<Intent>("signUp_data")
+            val id = intent?.getStringExtra("id")
+            val pw = intent?.getStringExtra("pw")
+            val name = intent?.getStringExtra("name")
+        }
+
     }
 
     override fun onCreateView(
@@ -73,7 +81,7 @@ class SignInFragment : Fragment() {
             val loginPW = pw_edit.text.toString()
 
             // 가상 ID, PW의 edittext가 일치하면 로그인 성공 + 페이지 전환
-            if(loginID == strID && loginPW == strPW && id_check && pw_check) {
+            if(loginID ==  && loginPW ==  && id_check && pw_check) {
                 (activity as? SignInActivity)?.loginSuccess()
             }
             // 아닐 경우, Toast 메세지 출력

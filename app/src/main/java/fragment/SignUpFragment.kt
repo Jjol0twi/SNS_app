@@ -1,6 +1,5 @@
 package fragment
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -102,15 +101,17 @@ class SignUpFragment : Fragment() {
             val pw = pw_edit.text.toString()
             val userId = userId_edit.text.toString()
 
+            val intent = Intent().apply {
+                putExtra("id", id)
+                putExtra("pw", pw)
+                putExtra("name", userId)
+            }
+            parentFragmentManager.setFragmentResult("singUp", bundleOf("signUp_data" to intent))
+
             // id, pw, userId가 제대로 입력이 된 경우
             if(id.isNotEmpty() && pw.isNotEmpty() && userId.isNotEmpty() && bool_btn) {
-                val intent = Intent().apply {
-                    putExtra("id", id)
-                    putExtra("pw", pw)
-                    putExtra("name", userId)
-                }
-
-                parentFragmentManager.setFragmentResult("singUp", bundleOf("signUp_data" to intent))
+                val user = User(id, pw, userId)
+                userMap[id] = user
 
                 // 회원가입 성공 시 로그인 화면으로 자동 이동
                 Toast.makeText(activity, "회원가입 성공 !", Toast.LENGTH_SHORT).show()
