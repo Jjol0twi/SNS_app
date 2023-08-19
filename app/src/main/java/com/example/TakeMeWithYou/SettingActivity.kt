@@ -55,6 +55,9 @@ class SettingActivity : AppCompatActivity() {
                                 settingChildView.findViewById(R.id.setting_listview_subItem_text)
                             settingSubText.text = j
                             settingSubContainer.addView(settingChildView)
+                            settingChildView.setOnClickListener{
+                                clickSettingItem(j)
+                            }
                         }
                     }
 
@@ -62,6 +65,10 @@ class SettingActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun clickSettingItem(j: String) {
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

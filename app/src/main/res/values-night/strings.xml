@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="myPage_user_image" translatable="false">myPage user Image</string>
-    <string name="main_listview_item_image_description">post content image</string>
+    <string name="main_listview_item_image_description" translatable="false">post content image</string>
 </resources>
