@@ -77,10 +77,13 @@ class SettingActivity : AppCompatActivity() {
         Locale.setDefault(locale)
 
         val config = Configuration()
-
         config.setLocale(locale)
 
-        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
+        val resources = baseContext.resources
+        val context = resources.configuration
+        context.locale = locale
+
+        resources.updateConfiguration(config, resources.displayMetrics)
 
         val editor = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
         editor.putString("My_Lang", Lang)
