@@ -1,4 +1,6 @@
-package com.example.TakeMeWithYou
+package com.example.TakeMeWithYou.data
+
+import com.example.TakeMeWithYou.model.User
 
 class UserList {
     var userList = mutableListOf<User>()

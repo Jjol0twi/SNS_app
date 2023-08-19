@@ -31,10 +31,11 @@ class PostContentData {
         return contentDataList
     }
 
-    fun addLikeCount(position : Int){
-        contentDataList[position].copy(likeCount = contentDataList[position].likeCount+1)
+    fun addLikeCount(position: Int) {
+        contentDataList[position].copy(likeCount = contentDataList[position].likeCount + 1)
     }
-    fun subLikeCount(position : Int){
-        contentDataList[position].copy(likeCount = contentDataList[position].likeCount-1)
+
+    fun subLikeCount(position: Int) {
+        contentDataList[position].copy(likeCount = contentDataList[position].likeCount - 1)
     }
 }

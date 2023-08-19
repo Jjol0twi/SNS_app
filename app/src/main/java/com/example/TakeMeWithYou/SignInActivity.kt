@@ -14,8 +14,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 lateinit var loginLauncher: ActivityResultLauncher<Intent>
 
 class SignInActivity : AppCompatActivity() {
-    var signId : String? = null
-    var signPW : String? = null
+    var signId: String? = null
+    var signPW: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,44 +31,48 @@ class SignInActivity : AppCompatActivity() {
 
         id_data.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if(!s.toString().matches(Regex("^[a-zA-Z0-9]*$")))
+                if (!s.toString().matches(Regex("^[a-zA-Z0-9]*$")))
                     id_data.error = "영어 및 숫자만 사용 가능"
                 else {
                     id_data.error = null
                     id_check = true
                 }
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
 
         pw_data.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if(!s.toString().matches(Regex("^[a-zA-Z0-9!@#\$%^&*()]*\$")))
+                if (!s.toString().matches(Regex("^[a-zA-Z0-9!@#\$%^&*()]*\$")))
                     pw_data.error = "영어, 숫자 및 특정 특수문자만 사용 가능"
-                else{
+                else {
                     pw_data.error = null
                     pw_check = true
                 }
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
 
-        loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                result ->
-            if(result.resultCode == RESULT_OK) {
-                val data = result.data
-                signId = data?.getStringExtra("id") ?: ""
-                signPW = data?.getStringExtra("pw") ?: ""
-                id_data.setText(signId)
-                pw_data.setText(signPW)
+        loginLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == RESULT_OK) {
+                    val data = result.data
+                    signId = data?.getStringExtra("id") ?: ""
+                    signPW = data?.getStringExtra("pw") ?: ""
+                    id_data.setText(signId)
+                    pw_data.setText(signPW)
+                }
             }
-        }
 
         btnLogin.setOnClickListener {
             val id = id_data.text.toString()
