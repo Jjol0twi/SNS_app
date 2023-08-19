@@ -13,29 +13,29 @@ class PostContentData {
             }
         }
     }
-
-    var contentDataList: ArrayList<PostContentModel> = arrayListOf(
+    val userData = UserList.getInstance()
+    var postContentData: ArrayList<PostContentModel> = arrayListOf(
         PostContentModel(
             R.drawable.content_img_202308180959,
-            "wowo",
+            userData.getUserId(0),
             23,
             "원데이 클래스, 그림 그리는 거 어렵다 앞으로는 Ai한테 그려달라고 해야겠다"
         ),
     )
 
     fun addItem(item: PostContentModel) {
-        contentDataList.add(item)
+        postContentData.add(item)
     }
 
     fun getAllItem(): ArrayList<PostContentModel> {
-        return contentDataList
+        return postContentData
     }
 
     fun addLikeCount(position: Int) {
-        contentDataList[position].copy(likeCount = contentDataList[position].likeCount + 1)
+        postContentData[position].copy(likeCount = postContentData[position].likeCount + 1)
     }
 
     fun subLikeCount(position: Int) {
-        contentDataList[position].copy(likeCount = contentDataList[position].likeCount - 1)
+        postContentData[position].copy(likeCount = postContentData[position].likeCount - 1)
     }
 }

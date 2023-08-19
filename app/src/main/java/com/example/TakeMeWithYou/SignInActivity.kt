@@ -10,10 +10,12 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.TakeMeWithYou.data.UserList
 
 lateinit var loginLauncher: ActivityResultLauncher<Intent>
 
 class SignInActivity : AppCompatActivity() {
+    private val userList = UserList.getInstance()
     var signId: String? = null
     var signPW: String? = null
 
@@ -78,7 +80,7 @@ class SignInActivity : AppCompatActivity() {
             val id = id_data.text.toString()
             val pw = pw_data.text.toString()
 
-            if (id == signId && pw == signPW && id_check && pw_check) {
+            if (id in userList.getUserIds() && pw in userList.getUserPWs() && id_check && pw_check) {
                 val intent = Intent(this, MainPageActivity::class.java)
                 startActivity(intent)
 

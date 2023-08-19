@@ -13,8 +13,7 @@ import com.example.TakeMeWithYou.model.User
 
 
 class SignUpActivity : AppCompatActivity() {
-    var userList = UserList()
-
+    private val userList = UserList.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up_activity)
@@ -94,7 +93,7 @@ class SignUpActivity : AppCompatActivity() {
 
             if (name.text.isNotEmpty() && id.text.isNotEmpty() && pw.text.isNotEmpty() && bool_btn) {
                 val user = User(strID, strPW, strName)
-                userList.userList.add(user)
+                userList.addUser(user)
 
                 val intent = Intent(this, SignInActivity::class.java)
                 intent.putExtra("id", strID)
