@@ -13,29 +13,32 @@
         android:theme="@style/Theme.TakeMeWithYou"
         tools:targetApi="31">
         <activity
-            android:name=".DetailPage"
-            android:exported="true">
-        </activity>
+            android:name=".SignUpActivity"
+            android:exported="false" />
         <activity
-            android:name=".SettingActivity"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".SignInActivity"
-            android:exported="true">
+            android:name=".SignInActivity2"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".DetailPage"
+            android:exported="true" />
+        <activity
+            android:name=".SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="true">
+        </activity>
         <activity
             android:name=".MyPageActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainPageActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
+
 </manifest>
