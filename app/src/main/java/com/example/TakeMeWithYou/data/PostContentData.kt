@@ -18,7 +18,7 @@ class PostContentData {
     var postContentData: ArrayList<PostContentModel> = arrayListOf(
         PostContentModel(
             R.drawable.content_img_202308180959,
-            userData.getUserId(0),
+            userData.getUserId(4),
             23,
             "원데이 클래스, 그림 그리는 거 어렵다 앞으로는 Ai한테 그려달라고 해야겠다"
         ),
@@ -59,50 +59,42 @@ class PostContentData {
         )
         postContentData.add(
             PostContentModel(
-                R.drawable.kakaotalk_20230820_143539872_02,
-                userData.getUserId(3),
-                134,
-                "오징어볶음"
+                R.drawable.s20221110_212704_1,
+                userData.getUserId(5),
+                45,
+                "삼엽충들아 모여라 내가 그 삼엽충이다"
             )
         )
         postContentData.add(
             PostContentModel(
-                R.drawable.kakaotalk_20230820_143539872_02,
-                userData.getUserId(3),
-                134,
-                "오징어볶음"
+                R.drawable.s20230709_194708,
+                userData.getUserId(5),
+                11,
+                "이거 먹고 다이어트 해야지"
             )
         )
         postContentData.add(
             PostContentModel(
-                R.drawable.kakaotalk_20230820_143539872_02,
-                userData.getUserId(3),
-                134,
-                "오징어볶음"
+                R.drawable.img_4348,
+                userData.getUserId(1),
+                233,
+                "농어 촵촵"
             )
         )
         postContentData.add(
             PostContentModel(
-                R.drawable.kakaotalk_20230820_143539872_02,
-                userData.getUserId(3),
-                134,
-                "오징어볶음"
+                R.drawable.img_5578,
+                userData.getUserId(1),
+                64,
+                "아프다…..낀다ㅣ….좁다…"
             )
         )
         postContentData.add(
             PostContentModel(
-                R.drawable.kakaotalk_20230820_143539872_02,
-                userData.getUserId(3),
+                R.drawable.dydwnssla_1,
+                userData.getUserId(4),
                 134,
-                "오징어볶음"
-            )
-        )
-        postContentData.add(
-            PostContentModel(
-                R.drawable.kakaotalk_20230820_143539872_02,
-                userData.getUserId(3),
-                134,
-                "오징어볶음"
+                "일산호수공원 잘 꾸며놨더라,  다음에 또 가야겠다"
             )
         )
     }
