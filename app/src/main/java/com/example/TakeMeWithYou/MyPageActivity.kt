@@ -88,8 +88,8 @@ class MyPageActivity : AppCompatActivity() {
                         true
                     }
                     R.id.postAdd -> {
-                        val intent = Intent(this,Postpageadd::class.java)
-                        startActivity(intent)
+                        val post = Intent(this,Postpageadd::class.java)
+                        startActivity(post)
                         true
                     }
                     else -> false
