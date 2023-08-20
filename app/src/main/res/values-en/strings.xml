@@ -31,4 +31,11 @@
     <string name="sigin_login_error">Please check your ID/password!</string>
     <string name="signup_success">Signup successful!</string>
     <string name="signup_failed">There is missing information!</string>
+    <string name="sign_up_name_text">name</string>
+    <string name="sign_up_name_edittext">edit name</string>
+    <string name="sign_up_id_text">id</string>
+    <string name="sign_up_id_edittext">edit id</string>
+    <string name="sign_up_pw_text">password</string>
+    <string name="sign_up_pw_edittext">edit password</string>
+    <string name="sign_up_button">signup</string>
 </resources>

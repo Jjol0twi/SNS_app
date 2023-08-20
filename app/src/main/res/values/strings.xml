@@ -87,4 +87,11 @@
     <string name="sigin_login_error">아이디/비밀번호를 확인해 주세요!</string>
     <string name="signup_success">회원가입 성공!</string>
     <string name="signup_failed">입력되지 않은 정보가 있습니다!</string>
+    <string name="sign_up_name_text">이름</string>
+    <string name="sign_up_name_edittext">이름을 입력하세요.</string>
+    <string name="sign_up_id_text">아이디</string>
+    <string name="sign_up_id_edittext">아이디를 입력하세요.</string>
+    <string name="sign_up_pw_text">비밀번호</string>
+    <string name="sign_up_pw_edittext">비밀번호를 입력하세요.</string>
+    <string name="sign_up_button">회원가입</string>
 </resources>
