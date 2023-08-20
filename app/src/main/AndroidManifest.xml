@@ -12,12 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TakeMeWithYou"
         tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LanguageSettingActivity"
-            android:exported="false" />
+
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
@@ -32,7 +27,7 @@
         </activity>
         <activity
             android:name=".DetailPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SettingActivity"
             android:exported="false" />
@@ -41,7 +36,10 @@
             android:exported="false" />
         <activity
             android:name=".MainPageActivity"
-            android:exported="false"></activity>
-    </application>
+            android:exported="false">
 
+        </activity>
+        <activity android:name=".Postpageadd"
+            android:exported="false"/>
+    </application>
 </manifest>
