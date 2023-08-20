@@ -65,5 +65,7 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="main_listview_item_image_description" translatable="false">post content image</string>
+    <string name="main_listview_item_button_description" translatable="false">post content like button</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>
