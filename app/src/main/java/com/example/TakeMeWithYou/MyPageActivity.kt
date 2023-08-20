@@ -26,10 +26,12 @@ class MyPageActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.menu_detail -> {
                     startActivity(Intent(this, DetailPage::class.java))
+                    finish()
                     true
                 }
                 R.id.menu_main -> {
                     startActivity(Intent(this, MainPageActivity::class.java))
+                    finish()
                     true
                 }
                 R.id.menu_myPage -> {

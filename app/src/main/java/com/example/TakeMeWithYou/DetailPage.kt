@@ -35,10 +35,12 @@ class DetailPage : AppCompatActivity() {
                 }
                 R.id.menu_main -> {
                     startActivity(Intent(this, MainPageActivity::class.java))
+                    finish()
                     true
                 }
                 R.id.menu_myPage -> {
                     startActivity(Intent(this, MyPageActivity::class.java))
+                    finish()
                     true
                 }
                 else -> false
