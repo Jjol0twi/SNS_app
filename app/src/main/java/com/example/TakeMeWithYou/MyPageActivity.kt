@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -21,6 +22,7 @@ class MyPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         overridePendingTransition(R.anim.from_right_enter, R.anim.none)
         setContentView(R.layout.mypage_activity)
+        setCustomToolbar(R.id.my_page_toolbar)
         myPageContentListView = findViewById(R.id.my_page_content_listview)
         val bottomnavi = findViewById<BottomNavigationView>(R.id.my_page_navigation_view)
         bottomnavi.menu.getItem(2).isChecked = true
@@ -62,6 +64,36 @@ class MyPageActivity : AppCompatActivity() {
                 listViewData.addLikeCount(listViewItem.indexOf(i))
             }
             myPageContentListView.addView(itemView)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.my_page_toolbar_menu, menu)
+        return true
+    }
+
+    private fun setCustomToolbar(layout: Int) {
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(layout)
+        // 툴바를 액션바로 지정
+        setSupportActionBar(toolbar)
+        val actionBar = supportActionBar
+        // 액션바에서 앱 이름 보이지 않게 지정
+        actionBar?.setDisplayShowCustomEnabled(false)
+        toolbar.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.setting_button -> {
+                        val intent = Intent(this, SettingActivity::class.java)
+                        startActivity(intent)
+                        true
+                    }
+                    R.id.postAdd -> {
+                        val intent = Intent(this,Postpageadd::class.java)
+                        startActivity(intent)
+                        true
+                    }
+                    else -> false
+            }
         }
     }
 }
