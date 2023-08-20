@@ -1,5 +1,6 @@
 package com.example.TakeMeWithYou
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.example.TakeMeWithYou.data.PostContentData
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DetailPage : AppCompatActivity() {
     private lateinit var detailContentListView: LinearLayout
@@ -18,10 +20,30 @@ class DetailPage : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.from_left_enter, R.anim.none)
         setContentView(R.layout.detail_page_activity)
         setCustomToolbar(R.id.toolbar)
         detailContentListView = findViewById(R.id.detail_content_listview)
         initLisView()
+
+        val bottomnavi = findViewById<BottomNavigationView>(R.id.bn_)
+        bottomnavi.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_detail -> {
+                    startActivity(Intent(this, DetailPage::class.java))
+                    true
+                }
+                R.id.menu_main -> {
+                    startActivity(Intent(this, MainPageActivity::class.java))
+                    true
+                }
+                R.id.menu_myPage -> {
+                    startActivity(Intent(this, MyPageActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun initLisView() {
