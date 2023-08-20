@@ -2,16 +2,16 @@
     <item
         android:title="detail"
         android:enabled="true"
-        android:id="@+id/menu_home"
+        android:id="@+id/menu_detail"
         android:icon="@drawable/resume" />
     <item
         android:title="main"
         android:enabled="true"
-        android:id="@+id/menu_favorites"
+        android:id="@+id/menu_main"
         android:icon="@drawable/home" />
     <item
         android:title="myPage"
         android:enabled="true"
-        android:id="@+id/menu_email"
+        android:id="@+id/menu_myPage"
         android:icon="@drawable/user" />
 </menu>

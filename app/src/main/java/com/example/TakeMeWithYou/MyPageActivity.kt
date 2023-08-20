@@ -1,5 +1,6 @@
 package com.example.TakeMeWithYou
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +9,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
+import androidx.core.view.get
 import com.example.TakeMeWithYou.data.PostContentData
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MyPageActivity : AppCompatActivity() {
     private lateinit var myPageContentListView: LinearLayout
@@ -16,8 +19,30 @@ class MyPageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.from_right_enter, R.anim.none)
         setContentView(R.layout.mypage_activity)
         myPageContentListView = findViewById(R.id.my_page_content_listview)
+        val bottomnavi = findViewById<BottomNavigationView>(R.id.my_page_navigation_view)
+        bottomnavi.menu.getItem(2).isChecked = true
+        bottomnavi.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_detail -> {
+                    startActivity(Intent(this, DetailPage::class.java))
+                    finish()
+                    true
+                }
+                R.id.menu_main -> {
+                    startActivity(Intent(this, MainPageActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.menu_myPage -> {
+                    startActivity(Intent(this, MyPageActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
         initLisView()
     }
 
@@ -34,6 +59,7 @@ class MyPageActivity : AppCompatActivity() {
             itemViewIdView.text = i.userId
             itemViewLikeCount.text = i.likeCount.toString()
             itemViewLikeButton.setOnClickListener {
+                listViewData.addLikeCount(listViewItem.indexOf(i))
             }
             myPageContentListView.addView(itemView)
         }

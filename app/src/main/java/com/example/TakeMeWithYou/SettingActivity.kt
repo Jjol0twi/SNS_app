@@ -104,7 +104,7 @@ class SettingActivity : AppCompatActivity() {
             recreate()
         }
         if (j == "영어") {
-            setLocate("ko")
+            setLocate("en")
             recreate()
         }
     }
