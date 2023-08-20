@@ -11,7 +11,7 @@
     <!-- 툴바 todo 에뮬레이터 상단에 보라색 여분 없애는 방법 -->
 
     <include
-        android:id="@+id/main_page_toolbar"
+        android:id="@+id/mainToolbar"
         layout="@layout/top_toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_page_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/mainToolbar" />
 
 
     <LinearLayout
