@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
+import androidx.core.view.get
 import com.example.TakeMeWithYou.data.PostContentData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -22,6 +23,7 @@ class MyPageActivity : AppCompatActivity() {
         setContentView(R.layout.mypage_activity)
         myPageContentListView = findViewById(R.id.my_page_content_listview)
         val bottomnavi = findViewById<BottomNavigationView>(R.id.my_page_navigation_view)
+        bottomnavi.menu.getItem(2).isChecked = true
         bottomnavi.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_detail -> {
@@ -57,6 +59,7 @@ class MyPageActivity : AppCompatActivity() {
             itemViewIdView.text = i.userId
             itemViewLikeCount.text = i.likeCount.toString()
             itemViewLikeButton.setOnClickListener {
+                listViewData.addLikeCount(listViewItem.indexOf(i))
             }
             myPageContentListView.addView(itemView)
         }

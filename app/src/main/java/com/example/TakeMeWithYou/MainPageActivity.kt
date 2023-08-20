@@ -29,6 +29,7 @@ class MainPageActivity : AppCompatActivity() {
 
         mainContentListView = findViewById(R.id.main_content_listView)
         val bottomnavi = findViewById<BottomNavigationView>(R.id.mainPageBottomNavigationView)
+        bottomnavi.menu.getItem(1).isChecked = true;
         bottomnavi.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_detail -> {
@@ -36,15 +37,18 @@ class MainPageActivity : AppCompatActivity() {
                     finish()
                     true
                 }
+
                 R.id.menu_main -> {
                     startActivity(Intent(this, MainPageActivity::class.java))
                     true
                 }
+
                 R.id.menu_myPage -> {
                     startActivity(Intent(this, MyPageActivity::class.java))
                     finish()
                     true
                 }
+
                 else -> false
             }
         }
@@ -64,6 +68,7 @@ class MainPageActivity : AppCompatActivity() {
             itemViewIdView.text = i.userId
             itemViewLikeCount.text = i.likeCount.toString()
             itemViewLikeButton.setOnClickListener {
+                listViewData.addLikeCount(listViewItem.indexOf(i))
             }
             mainContentListView.addView(itemView)
         }

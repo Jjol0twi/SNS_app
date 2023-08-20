@@ -27,22 +27,26 @@ class DetailPage : AppCompatActivity() {
         initLisView()
 
         val bottomnavi = findViewById<BottomNavigationView>(R.id.bn_)
+        bottomnavi.menu.getItem(0).isChecked = true;
         bottomnavi.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_detail -> {
                     startActivity(Intent(this, DetailPage::class.java))
                     true
                 }
+
                 R.id.menu_main -> {
                     startActivity(Intent(this, MainPageActivity::class.java))
                     finish()
                     true
                 }
+
                 R.id.menu_myPage -> {
                     startActivity(Intent(this, MyPageActivity::class.java))
                     finish()
                     true
                 }
+
                 else -> false
             }
         }
@@ -51,8 +55,10 @@ class DetailPage : AppCompatActivity() {
     private fun initLisView() {
         val listViewItem = listViewData.getAllItem()
         for (i in listViewItem) {
-            val itemView = LayoutInflater.from(this).inflate(R.layout.detail_listview_item, null)
-            val itemViewImageView: ImageView = itemView.findViewById(R.id.detail_post_content_img)
+            val itemView = LayoutInflater.from(this)
+                .inflate(R.layout.detail_listview_item, null)   // item layout 가져오기
+            val itemViewImageView: ImageView =
+                itemView.findViewById(R.id.detail_post_content_img)  // item widget findviewbyid를 통해서 호출
             val itemViewDesView: TextView = itemView.findViewById(R.id.detail_post_content_des)
             val itemViewLikeCount: TextView =
                 itemView.findViewById(R.id.detail_post_content_like_count)
@@ -62,6 +68,7 @@ class DetailPage : AppCompatActivity() {
             itemViewDesView.text = i.description
             itemViewLikeCount.text = i.likeCount.toString()
             itemViewLikeButton.setOnClickListener {
+                listViewData.addLikeCount(listViewItem.indexOf(i))
             }
             detailContentListView.addView(itemView)
         }

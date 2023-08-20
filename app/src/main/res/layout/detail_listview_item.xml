@@ -38,9 +38,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:src="@drawable/unfavorite_icon"
+        android:contentDescription="@string/main_listview_item_button_description"
+        android:src="@drawable/post_content_like_button"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detail_post_content_des"
-        android:contentDescription="@string/main_listview_item_button_description" />
+        app:layout_constraintTop_toBottomOf="@id/detail_post_content_des" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

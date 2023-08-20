@@ -83,7 +83,6 @@ class SignInActivity : AppCompatActivity() {
             if (id in userList.getUserIds() && pw in userList.getUserPWs() && id_check && pw_check) {
                 val intent = Intent(this, MainPageActivity::class.java)
                 startActivity(intent)
-
             } else {
                 Toast.makeText(this, "아이디/비밀번호를 확인해 주세요 !", Toast.LENGTH_SHORT).show()
             }
