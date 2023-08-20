@@ -4,7 +4,7 @@ import com.example.TakeMeWithYou.model.User
 
 class UserList {
     var userList = mutableListOf<User>()
-
+    var appNowUser : String = ""
     companion object {  // 싱글턴
         @Volatile
         private var instance: UserList? = null
@@ -45,5 +45,11 @@ class UserList {
         return userList[position].userPW
     }
 
+    fun setNowUser(id : String) {
+        appNowUser= id
+    }
+    fun getNowUser(): String {
+        return appNowUser
+    }
 
 }

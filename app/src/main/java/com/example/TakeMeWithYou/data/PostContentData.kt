@@ -102,6 +102,9 @@ class PostContentData {
     fun addItem(item: PostContentModel) {
         postContentData.add(item)
     }
+    fun getItemById(id: String): List<PostContentModel> {
+        return postContentData.filter { it.userId == id }
+    }
 
     fun getAllItem(): ArrayList<PostContentModel> {
         return postContentData

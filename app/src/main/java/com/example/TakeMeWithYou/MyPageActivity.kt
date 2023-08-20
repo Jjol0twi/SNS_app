@@ -12,10 +12,13 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.core.view.get
 import com.example.TakeMeWithYou.data.PostContentData
+import com.example.TakeMeWithYou.data.UserList
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MyPageActivity : AppCompatActivity() {
     private lateinit var myPageContentListView: LinearLayout
+    private lateinit var userIdText: TextView
+    private val userList = UserList.getInstance()
     private val listViewData = PostContentData.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +28,8 @@ class MyPageActivity : AppCompatActivity() {
         setCustomToolbar(R.id.my_page_toolbar)
         myPageContentListView = findViewById(R.id.my_page_content_listview)
         val bottomnavi = findViewById<BottomNavigationView>(R.id.my_page_navigation_view)
+        userIdText = findViewById(R.id.my_page_user_id)
+        userIdText.text = userList.getNowUser()
         bottomnavi.menu.getItem(2).isChecked = true
         bottomnavi.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -33,15 +38,18 @@ class MyPageActivity : AppCompatActivity() {
                     finish()
                     true
                 }
+
                 R.id.menu_main -> {
                     startActivity(Intent(this, MainPageActivity::class.java))
                     finish()
                     true
                 }
+
                 R.id.menu_myPage -> {
                     startActivity(Intent(this, MyPageActivity::class.java))
                     true
                 }
+
                 else -> false
             }
         }
@@ -49,7 +57,7 @@ class MyPageActivity : AppCompatActivity() {
     }
 
     private fun initLisView() {
-        val listViewItem = listViewData.getAllItem()
+        val listViewItem = listViewData.getItemById(userList.getNowUser())
         for (i in listViewItem) {
             val itemView = LayoutInflater.from(this).inflate(R.layout.main_listview_item, null)
             val itemViewImageView: ImageView = itemView.findViewById(R.id.main_post_content_img)
