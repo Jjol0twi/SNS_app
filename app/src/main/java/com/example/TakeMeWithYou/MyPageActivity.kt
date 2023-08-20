@@ -8,16 +8,15 @@ import android.view.Menu
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.ListView
 import android.widget.TextView
-import androidx.core.view.get
 import com.example.TakeMeWithYou.data.PostContentData
 import com.example.TakeMeWithYou.data.UserList
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MyPageActivity : AppCompatActivity() {
     private lateinit var myPageContentListView: LinearLayout
-    private lateinit var userIdText: TextView
+    private lateinit var myPageUserImg: ImageView
+    private lateinit var myPageuserIdText: TextView
     private val userList = UserList.getInstance()
     private val listViewData = PostContentData.getInstance()
 
@@ -28,8 +27,11 @@ class MyPageActivity : AppCompatActivity() {
         setCustomToolbar(R.id.my_page_toolbar)
         myPageContentListView = findViewById(R.id.my_page_content_listview)
         val bottomnavi = findViewById<BottomNavigationView>(R.id.my_page_navigation_view)
-        userIdText = findViewById(R.id.my_page_user_id)
-        userIdText.text = userList.getNowUser()
+        myPageuserIdText = findViewById(R.id.my_page_user_id)
+        myPageUserImg = findViewById(R.id.my_page_user_img)
+        myPageUserImg.clipToOutline = true
+        myPageuserIdText.text = userList.getNowUser()
+        userList.getUserImage(userList.getNowUser())?.let { myPageUserImg.setImageResource(it) }
         bottomnavi.menu.getItem(2).isChecked = true
         bottomnavi.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -89,18 +91,20 @@ class MyPageActivity : AppCompatActivity() {
         // 액션바에서 앱 이름 보이지 않게 지정
         actionBar?.setDisplayShowCustomEnabled(false)
         toolbar.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.setting_button -> {
-                        val intent = Intent(this, SettingActivity::class.java)
-                        startActivity(intent)
-                        true
-                    }
-                    R.id.postAdd -> {
-                        val post = Intent(this,Postpageadd::class.java)
-                        startActivity(post)
-                        true
-                    }
-                    else -> false
+            when (item.itemId) {
+                R.id.setting_button -> {
+                    val intent = Intent(this, SettingActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.postAdd -> {
+                    val post = Intent(this, Postpageadd::class.java)
+                    startActivity(post)
+                    true
+                }
+
+                else -> false
             }
         }
     }

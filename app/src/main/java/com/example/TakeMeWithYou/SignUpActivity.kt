@@ -92,7 +92,7 @@ class SignUpActivity : AppCompatActivity() {
             val strName = name.text.toString()
 
             if (name.text.isNotEmpty() && id.text.isNotEmpty() && pw.text.isNotEmpty() && bool_btn) {
-                val user = User(strID, strPW, strName)
+                val user = User(null, strID, strPW, strName)
                 userList.addUser(user)
 
                 val intent = Intent(this, SignInActivity::class.java)
