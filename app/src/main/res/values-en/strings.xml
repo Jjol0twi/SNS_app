@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TakeMeWithYou</string>
-    <string name="setting_language_kor_btn">한국어</string>
-    <string name="setting_language_en_btn">English</string>
+    <string name="toolbar_title">All set and ready let\'s go</string>
     <string name="toolbar_search_icon_btn_description">search</string>
     <string name="toolbar_setting_icon_btn_description">setting</string>
     <string name="bottom_navigation_title_mainpage">main page</string>
@@ -11,4 +10,25 @@
     <string name="search_view_hint_text">input find ID</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="setting_finish_text">complete</string>
+    <string name="setting_item_langauge">language</string>
+    <string name="setting_item_font">font</string>
+    <string name="setting_item_theme">theme</string>
+    <string name="setting_item_logout">logout</string>
+    <string name="setting_item_langauge_system">system setting</string>
+    <string name="setting_item_langauge_ko">korean</string>
+    <string name="setting_item_langauge_en">english</string>
+    <string name="setting_item_font_item">still preparing</string>
+    <string name="setting_item_theme_item">preparing</string>
+    <string name="sign_in_button">login</string>
+    <string name="signup_button">singup</string>
+    <string name="sigin_id_text">id</string>
+    <string name="sigin_id_edittext">edit id</string>
+    <string name="sigin_pw_text">password</string>
+    <string name="sigin_pw_edittext">edit password</string>
+    <string name="sigin_id_error">Only English and numbers are allowed</string>
+    <string name="sigin_pw_error">Only English, numbers, and specific special characters are allowed.</string>
+    <string name="sigin_login_error">Please check your ID/password!</string>
+    <string name="signup_success">Signup successful!</string>
+    <string name="signup_failed">There is missing information!</string>
 </resources>

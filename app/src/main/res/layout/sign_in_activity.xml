@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="30dp"
-            android:text="로그인"
-            android:textSize="25dp"
+            android:text="@string/sign_in_button"
+            android:textSize="25sp"
             android:textColor="@color/white"
             android:background="@drawable/edittext_box"
             android:backgroundTint = "@color/purple"
@@ -40,8 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="50dp"
-            android:text="회원가입"
-            android:textSize="25dp"
+            android:text="@string/signup_button"
+            android:textSize="25sp"
             android:textColor="@color/white"
             android:background="@drawable/edittext_box"
             android:backgroundTint="@color/purple"
@@ -65,9 +65,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:text="아이디"
-                android:layout_marginLeft="10dp"
-                android:textSize="20dp"
+                android:text="@string/sigin_id_text"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -77,19 +77,19 @@
                 android:layout_height="60dp"
                 android:background="@drawable/edittext_box"
                 android:ems="10"
-                android:hint="아이디를 입력하세요."
+                android:hint="@string/sigin_id_edittext"
                 android:inputType="textEmailAddress"
                 android:padding="15dp"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="20dp"
-                android:text="비밀번호"
-                android:layout_marginLeft="10dp"
-                android:textSize="20dp"
+                android:text="@string/sigin_pw_text"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -99,10 +99,10 @@
                 android:layout_height="60dp"
                 android:ems="10"
                 android:background="@drawable/edittext_box"
-                android:hint="비밀번호를 입력하세요."
+                android:hint="@string/sigin_pw_edittext"
                 android:inputType="textPassword"
                 android:padding="15dp"
-                android:textSize="18dp"/>
+                android:textSize="18sp"/>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

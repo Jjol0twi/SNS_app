@@ -2,14 +2,12 @@
     <string name="app_name">TakeMeWithYou</string>
 
     <!--language setting start-->
-    <string name="setting_language_kor_btn">한국어</string>
-    <string name="setting_language_en_btn">English</string>
 
 
     <!--langugage setting end-->
 
     <!--mainPage setting start-->
-    <string name="toolbar_title" translatable="false">조 이름</string>
+    <string name="toolbar_title">5지고 지리고 let\'sgo</string>
     <string name="toolbar_search_icon_btn_description">검색</string>
     <string name="toolbar_setting_icon_btn_description">설정</string>
 
@@ -68,4 +66,25 @@
     <string name="main_listview_item_image_description" translatable="false">post content image</string>
     <string name="main_listview_item_button_description" translatable="false">post content like button</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="setting_finish_text">완료</string>
+    <string name="setting_item_langauge">언어</string>
+    <string name="setting_item_font">폰트</string>
+    <string name="setting_item_theme">테마</string>
+    <string name="setting_item_logout">로그아웃</string>
+    <string name="setting_item_langauge_system">시스템 설정</string>
+    <string name="setting_item_langauge_ko">한국어</string>
+    <string name="setting_item_langauge_en">영어</string>
+    <string name="setting_item_font_item">아직 준비중</string>
+    <string name="setting_item_theme_item">준비중</string>
+    <string name="sign_in_button">로그인</string>
+    <string name="signup_button">회원가입</string>
+    <string name="sigin_id_text">아이디</string>
+    <string name="sigin_id_edittext">아이디를 입력하세요.</string>
+    <string name="sigin_pw_text">비밀번호</string>
+    <string name="sigin_pw_edittext">비밀번호를 입력하세요.</string>
+    <string name="sigin_id_error">영어 및 숫자만 사용 가능</string>
+    <string name="sigin_pw_error">영어, 숫자 및 특정 특수문자만 사용 가능</string>
+    <string name="sigin_login_error">아이디/비밀번호를 확인해 주세요!</string>
+    <string name="signup_success">회원가입 성공!</string>
+    <string name="signup_failed">입력되지 않은 정보가 있습니다!</string>
 </resources>

@@ -34,7 +34,7 @@ class SignInActivity : AppCompatActivity() {
         id_data.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (!s.toString().matches(Regex("^[a-zA-Z0-9]*$")))
-                    id_data.error = "영어 및 숫자만 사용 가능"
+                    id_data.error = getString(R.string.sigin_id_error)
                 else {
                     id_data.error = null
                     id_check = true
@@ -51,7 +51,7 @@ class SignInActivity : AppCompatActivity() {
         pw_data.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (!s.toString().matches(Regex("^[a-zA-Z0-9!@#\$%^&*()]*\$")))
-                    pw_data.error = "영어, 숫자 및 특정 특수문자만 사용 가능"
+                    pw_data.error = getString(R.string.sigin_pw_error)
                 else {
                     pw_data.error = null
                     pw_check = true
@@ -85,7 +85,7 @@ class SignInActivity : AppCompatActivity() {
                 userList.setNowUser(id)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "아이디/비밀번호를 확인해 주세요 !", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.sigin_login_error), Toast.LENGTH_SHORT).show()
             }
         }
 

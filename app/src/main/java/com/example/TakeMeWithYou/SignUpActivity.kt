@@ -31,7 +31,7 @@ class SignUpActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 // id는 영어 및 숫자만 입력 가능
                 if (!s.toString().matches(Regex("^[a-zA-Z0-9]*$"))) {
-                    id.error = "영어 / 숫자만 입력이 가능"
+                    id.error = getString(R.string.sigin_id_error)
                     name.isEnabled = false
                 } else {
                     id.error = null
@@ -54,7 +54,7 @@ class SignUpActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 // userId는 영어, 숫자, 특수문자 입력 가능
                 if (!s.toString().matches(Regex("^[a-zA-Z0-9!@#$%^&*()]*$"))) {
-                    name.error = "영어 및 특정 특수문자만 사용 가능"
+                    name.error = getString(R.string.sigin_pw_error)
                 } else {
                     name.error = null
                     pw.isEnabled = true
@@ -72,7 +72,7 @@ class SignUpActivity : AppCompatActivity() {
         pw.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (!s.toString().matches(Regex("^[a-zA-Z0-9!@#$%^&*()]*$"))) {
-                    pw.error = "영어 및 특정 특수문자만 사용 가능"
+                    pw.error = getString(R.string.sigin_pw_error)
                 } else {
                     pw.error = null
                     bool_btn = true
@@ -102,11 +102,11 @@ class SignUpActivity : AppCompatActivity() {
 
                 setResult(RESULT_OK, intent)
 
-                Toast.makeText(this, "회원가입 성공 !", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.signup_success), Toast.LENGTH_SHORT).show()
                 finish()
 
             } else {
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다 !", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.signup_failed), Toast.LENGTH_SHORT).show()
             }
         }
     }

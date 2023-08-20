@@ -2,4 +2,13 @@
 <resources>
     <string name="myPage_user_image" translatable="false">myPage user Image</string>
     <string name="main_listview_item_image_description" translatable="false">post content image</string>
+    <string name="setting_finish_text">완료</string>
+    <string name="setting_item_langauge">언어</string>
+    <string name="setting_item_font">폰트</string>
+    <string name="setting_item_theme">테마</string>
+    <string name="setting_item_logout">로그아웃</string>
+    <string name="setting_item_langauge_system">시스템 설정</string>
+    <string name="setting_item_langauge_ko">한국어</string>
+    <string name="setting_item_langauge_en">영어</string>
+    <string name="setting_item_font_item">아직 준비중</string>
 </resources>

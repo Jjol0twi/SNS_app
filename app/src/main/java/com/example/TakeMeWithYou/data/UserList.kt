@@ -22,7 +22,7 @@ class UserList {
         userList.add(User("minda", "2dl78dldy^^", "이다민"),)
         userList.add(User("tlstmdcjfekt", "101801qw", "신승철"),)
         userList.add(User("ddw098", "oi0987", "이용준"),)
-        userList.add(User("dkssud", "sksqkqhdi", "홍현민"),)
+        userList.add(User("hyunmin", "sksqkqhdi", "홍현민"),)
     }
 
     fun addUser(user: User) {

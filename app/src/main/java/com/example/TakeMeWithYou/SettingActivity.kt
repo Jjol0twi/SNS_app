@@ -2,6 +2,7 @@ package com.example.TakeMeWithYou
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,17 +11,28 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import com.example.TakeMeWithYou.data.UserList
 import java.util.Locale
 
 class SettingActivity : AppCompatActivity() {
 
     private val settingToolbar: Toolbar by lazy { findViewById(R.id.setting_toolbar) }
     private lateinit var settingMainListView: LinearLayout
-    private val settingMainItems: Array<String> = arrayOf("설정", "폰트", "테마", "로그아웃")
-    private val settingSubItems: Map<String, Array<String>> = mapOf(
-        "설정" to arrayOf("시스템 설정", "한국어", "English"),
-        "폰트" to arrayOf("기본", "아직 준비중"),
-        "테마" to arrayOf("기본", "준비중"),
+    private val settingMainItems: Array<Int> =
+        arrayOf(
+            R.string.setting_item_langauge,
+            R.string.setting_item_font,
+            R.string.setting_item_theme,
+            R.string.setting_item_logout
+        )
+    private val settingSubItems: Map<Int, Array<Int>> = mapOf(
+        R.string.setting_item_langauge to arrayOf(
+            R.string.setting_item_langauge_system,
+            R.string.setting_item_langauge_ko,
+            R.string.setting_item_langauge_en
+        ),
+        R.string.setting_item_font to arrayOf(R.string.setting_item_font_item),
+        R.string.setting_item_theme to arrayOf(R.string.setting_item_theme_item),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,13 +43,27 @@ class SettingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         initListView()
+        settingToolbar.setOnMenuItemClickListener { it ->
+            when (it.itemId) {
+                R.id.setting_complete -> {
+                    finish()
+                    true
+
+                }
+
+                else -> {
+                    false
+                }
+            }
+
+        }
     }
 
     private fun initListView() {
         for (i in settingMainItems) {
             val settingView = layoutInflater.inflate(R.layout.setting_listview_item, null)
             val settingText: TextView = settingView.findViewById(R.id.setting_listview_item_text)
-            settingText.text = i
+            settingText.text = getString(i)
             settingMainListView.addView(settingView)
             val settingSubContainer: LinearLayout =
                 layoutInflater.inflate(
@@ -57,7 +83,7 @@ class SettingActivity : AppCompatActivity() {
                                 layoutInflater.inflate(R.layout.setting_listview_subitem, null)
                             val settingSubText: TextView =
                                 settingChildView.findViewById(R.id.setting_listview_subItem_text)
-                            settingSubText.text = j
+                            settingSubText.text = getString(j)
                             settingSubContainer.addView(settingChildView)
                             settingChildView.setOnClickListener {
                                 clickSettingItem(j)
@@ -65,8 +91,9 @@ class SettingActivity : AppCompatActivity() {
                         }
                     }
 
+                } else {
+                    clickSettingItem(i)
                 }
-
             }
         }
     }
@@ -90,8 +117,8 @@ class SettingActivity : AppCompatActivity() {
         editor.apply()
     }
 
-    private fun clickSettingItem(j: String) {
-        if (j == "시스템 설정") {
+    private fun clickSettingItem(j: Int) {
+        if (j == R.string.setting_item_langauge_system) {
             val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
             val language = sharedPreferences.getString("My_Lang", "ko")
             if (language != null) {
@@ -99,13 +126,18 @@ class SettingActivity : AppCompatActivity() {
                 recreate()
             }
         }
-        if (j == "한국어") {
+        if (j == R.string.setting_item_langauge_ko) {
             setLocate("ko")
             recreate()
         }
-        if (j == "영어") {
+        if (j == R.string.setting_item_langauge_en) {
             setLocate("en")
             recreate()
+        }
+        if (j == R.string.setting_item_logout) {
+            UserList.getInstance().setNowUser("")
+            finish()
+            startActivity(Intent(this, SignInActivity::class.java))
         }
     }
 

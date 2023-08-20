@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/setting_button"
-        android:icon="@drawable/baseline_settings"
-        android:title="설정"
-        app:showAsAction="ifRoom"
-        />
-    <item
         android:id="@+id/postAdd"
         android:icon="@drawable/ic_baseline_add_24"
         android:title="post"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/setting_button"
+        android:icon="@drawable/baseline_settings"
+        android:title="설정"
+        app:showAsAction="ifRoom" />
+
 </menu>
