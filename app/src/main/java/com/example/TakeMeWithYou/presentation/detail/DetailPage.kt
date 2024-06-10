@@ -57,12 +57,12 @@ class DetailPage : AppCompatActivity() {
             val itemView = LayoutInflater.from(this)
                 .inflate(R.layout.detail_listview_item, null)   // item layout 가져오기
             val itemViewImageView: ImageView =
-                itemView.findViewById(R.id.detail_post_content_img)  // item widget findviewbyid를 통해서 호출
-            val itemViewDesView: TextView = itemView.findViewById(R.id.detail_post_content_des)
+                itemView.findViewById(R.id.d_post_img)  // item widget findviewbyid를 통해서 호출
+            val itemViewDesView: TextView = itemView.findViewById(R.id.d_post_des)
             val itemViewLikeCount: TextView =
-                itemView.findViewById(R.id.detail_post_content_like_count)
+                itemView.findViewById(R.id.d_post_like_count)
             val itemViewLikeButton: ImageButton =
-                itemView.findViewById(R.id.detail_post_content_like)
+                itemView.findViewById(R.id.d_post_btn_like)
             itemViewImageView.setImageResource(i.imagePath)
             itemViewDesView.text = i.description
             itemViewLikeCount.text = i.likeCount.toString()
