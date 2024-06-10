@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPageActivity">
+    tools:context=".presentation.main.MainpageActivity">
 
     <!--  todo 돋보기 아이콘 클릭 시 검색 입력창 추가  -->
     <!--  todo 검색 입력창에서 팀원 이름 자동완성 // 기능구현에서 처리-->

@@ -1,4 +1,4 @@
-package com.example.TakeMeWithYou
+package com.example.TakeMeWithYou.presentation.setting
 
 import android.app.Activity
 import android.content.Context
@@ -11,6 +11,8 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import com.example.TakeMeWithYou.R
+import com.example.TakeMeWithYou.presentation.signin.SignInActivity
 import com.example.TakeMeWithYou.data.UserList
 import java.util.Locale
 

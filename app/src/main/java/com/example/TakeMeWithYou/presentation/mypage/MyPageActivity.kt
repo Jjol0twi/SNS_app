@@ -1,4 +1,4 @@
-package com.example.TakeMeWithYou
+package com.example.TakeMeWithYou.presentation.mypage
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,8 +9,13 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.example.TakeMeWithYou.presentation.detail.DetailPage
+import com.example.TakeMeWithYou.Postpageadd
+import com.example.TakeMeWithYou.R
+import com.example.TakeMeWithYou.presentation.setting.SettingActivity
 import com.example.TakeMeWithYou.data.PostContentData
 import com.example.TakeMeWithYou.data.UserList
+import com.example.TakeMeWithYou.presentation.main.MainpageActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MyPageActivity : AppCompatActivity() {
