@@ -11,17 +11,23 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.TakeMeWithYou.data.UserList
+import com.example.TakeMeWithYou.databinding.SignInActivityBinding
 
 lateinit var loginLauncher: ActivityResultLauncher<Intent>
 
 class SignInActivity : AppCompatActivity() {
+    private lateinit var binding: SignInActivityBinding
+
     private val userList = UserList.getInstance()
     var signId: String? = null
     var signPW: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.sign_in_activity)
+        binding = SignInActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        initView()
         val id_data = findViewById<EditText>(R.id.idEditText)
         val pw_data = findViewById<EditText>(R.id.pwEditText)
         val btnLogin = findViewById<Button>(R.id.btn_login)
@@ -81,7 +87,7 @@ class SignInActivity : AppCompatActivity() {
             val pw = pw_data.text.toString()
 
             if (id in userList.getUserIds() && pw in userList.getUserPWs() && id_check && pw_check) {
-                val intent = Intent(this, MainPageActivity::class.java)
+                val intent = Intent(this, MainpageActivity::class.java)
                 userList.setNowUser(id)
                 startActivity(intent)
             } else {
@@ -93,5 +99,10 @@ class SignInActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             loginLauncher.launch(intent)
         }
+    }
+
+    private fun initView() = with(binding) {
+        btnLogin.setOnClickListener {  }
+        btnSignup.setOnClickListener {  }
     }
 }

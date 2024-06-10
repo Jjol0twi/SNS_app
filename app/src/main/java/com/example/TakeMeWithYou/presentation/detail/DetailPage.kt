@@ -8,7 +8,6 @@ import android.view.Menu
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.example.TakeMeWithYou.data.PostContentData
@@ -36,7 +35,7 @@ class DetailPage : AppCompatActivity() {
                 }
 
                 R.id.menu_main -> {
-                    startActivity(Intent(this, MainPageActivity::class.java))
+                    startActivity(Intent(this, MainpageActivity::class.java))
                     finish()
                     true
                 }

@@ -21,7 +21,7 @@ class SignUpActivity : AppCompatActivity() {
         val name = findViewById<EditText>(R.id.nameText)
         val id = findViewById<EditText>(R.id.idText)
         val pw = findViewById<EditText>(R.id.pwText)
-        val signUpBtn = findViewById<Button>(R.id.button)
+        val signUpBtn = findViewById<Button>(R.id.btn_signup)
 
         id.isEnabled = false
         pw.isEnabled = false
