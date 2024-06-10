@@ -1,4 +1,4 @@
-package com.example.TakeMeWithYou
+package com.example.TakeMeWithYou.presentation.signup
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +8,10 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.TakeMeWithYou.R
 import com.example.TakeMeWithYou.data.UserList
 import com.example.TakeMeWithYou.model.User
+import com.example.TakeMeWithYou.presentation.signin.SignInActivity
 
 
 class SignUpActivity : AppCompatActivity() {

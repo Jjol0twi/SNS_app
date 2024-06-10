@@ -1,4 +1,4 @@
-package com.example.TakeMeWithYou
+package com.example.TakeMeWithYou.presentation.signin
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,8 +10,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.TakeMeWithYou.R
+import com.example.TakeMeWithYou.presentation.signup.SignUpActivity
 import com.example.TakeMeWithYou.data.UserList
 import com.example.TakeMeWithYou.databinding.SignInActivityBinding
+import com.example.TakeMeWithYou.presentation.main.MainpageActivity
 
 lateinit var loginLauncher: ActivityResultLauncher<Intent>
 
@@ -28,6 +31,7 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initView()
+
         val id_data = findViewById<EditText>(R.id.idEditText)
         val pw_data = findViewById<EditText>(R.id.pwEditText)
         val btnLogin = findViewById<Button>(R.id.btn_login)
@@ -103,6 +107,8 @@ class SignInActivity : AppCompatActivity() {
 
     private fun initView() = with(binding) {
         btnLogin.setOnClickListener {  }
-        btnSignup.setOnClickListener {  }
+        btnSignup.setOnClickListener {
+
+        }
     }
 }
